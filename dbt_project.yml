@@ -36,9 +36,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  motion_datat:
+  motion_data:
     # Applies to all files under models/example/
-    core:
-      +materialized: table
-    staging:
-      +materialized: view
+    business:
+      marketing:
+        +materialized: table
+        +transient: false
