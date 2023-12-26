@@ -1,19 +1,12 @@
+{{
+    config(materialized="table")
+}}
+
 WITH customers AS (
-    SELECT
-        id as customer_id,
-        first_name,
-        last_name
-    from
-        briteflux.motion_data.customers
+    SELECT * FROM {{ ref('stg_customer')}}
 ),
-orders AS(
-    SELECT 
-        id as order_id,
-        user_id as customer_id,
-        order_date,
-        status
-    FROM 
-        briteflux.motion_data.orders
+orders AS (
+    SELECT * FROM {{ ref('stg_orders')}}
 ),
 customer_orders as(
     SELECT
