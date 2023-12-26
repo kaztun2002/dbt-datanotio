@@ -4,7 +4,7 @@ WITH orders AS(
         user_id as customer_id,
         order_date,
         status
-    FROM 
+    FROM
         briteflux.motion_data.orders
 )
 SELECT * FROM orders
